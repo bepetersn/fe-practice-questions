@@ -37,12 +37,6 @@ AccordionItem.propTypes = {
   handleToggleClick: PropTypes.func.isRequired,
 };
 
-
-function getToggledValuesClassicAccordion(index, length) {
-  // Only the clicked index is open, all others are closed
-  return Array.from({ length }, (_, i) => i === index);
-}
-
 export const Accordion = () => {
   let toggleValuesInitial = questions.map((_, index) => {
     return index == 0;
