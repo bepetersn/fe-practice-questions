@@ -10,7 +10,7 @@ const AccordionItem = ({ question, openValue, handleToggleClick }) => {
     <>
       <button
         className="accordion-title"
-        data-testid="accordion-title"
+        data-testid="toogle-button"
         onClick={handleToggleClick}
         style={{ cursor: "pointer", userSelect: "none", background: "none", border: "none", width: "100%", textAlign: "left", padding: 0 }}
         aria-expanded={openValue}
@@ -49,13 +49,24 @@ export const Accordion = () => {
   })
   const [openValues, setOpenValues] = useState(toggleValuesInitial)
 
+  // import PropTypes from 'prop-types';
+
+  // AccordionItem.propTypes = {
+  //   question: PropTypes.shape({
+  //     title: PropTypes.string.isRequired,
+  //     info: PropTypes.string.isRequired,
+  //   }).isRequired,
+  //   openValue: PropTypes.bool.isRequired,
+  //   handleToggleClick: PropTypes.func.isRequired,
+  // };
+
   const handleToggle = (index) => {
     setOpenValues((prev) => {
+      // If the clicked item is already open, close it (all closed)
       if (prev[index]) {
-        // If already open, close all
         return prev.map(() => false);
       } else {
-        // Open only the clicked one
+        // Open the clicked one, close all others simultaneously
         return prev.map((_, i) => i === index);
       }
     });

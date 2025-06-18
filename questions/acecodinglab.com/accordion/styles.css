@@ -34,8 +34,12 @@
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  transition: max-height 1.2s cubic-bezier(0.4, 0, 0.2, 1), padding 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 0;
 }
 .accordion-content.open {
-  max-height: 200px; /* Adjust as needed for your content */
+  max-height: 200px; /* Adjust to fit your content */
+  pointer-events: auto;
+  padding: 8px 0;
 }
